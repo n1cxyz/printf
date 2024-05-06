@@ -30,19 +30,18 @@ int	ft_format(const char format, va_list args)
 		return (ft_putnbr_hexu(va_arg(args, int)));
 	else if (format == '%')
 		return (ft_putchar('%'));
-	return (50);	
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	int	i;
-	int	count;
+	int		i;
+	int		count;
 
 	i = 0;
 	count = 0;
 	va_start(args, format);
-	while (format[i] != '\0')	
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
@@ -56,15 +55,17 @@ int	ft_printf(const char *format, ...)
 	va_end (args);
 	return (count);
 }
-
+/* 
 int	main(void)
 {
 	int	address = 42;
 
-	int	ft_result = ft_printf("name is %s and %d,%u,%x,%X years %%old%c living at %p\n", "Laura", 23, 23, 23, 23, '!', &address);
-	int	p_result = printf("name is %s and %d,%u,%x,%X years %%old%c living at %p\n", "Laura", 23, 23, 23, 23, '!', &address);
+	int	ft_result = ft_printf("name is %s and %d,%u,%x,%X years %%old%c living\
+	at %p\n", "Laura", 23, 23, 23, 23, '!', &address);
+	int	p_result = printf("name is %s and %d,%u,%x,%X years %%old%c living at\
+	%p\n", "Laura", 23, 23, 23, 23, '!', &address);
 	
 	ft_printf("%d\n", ft_result);
 	printf("%d\n", p_result);
 }
-
+ */
