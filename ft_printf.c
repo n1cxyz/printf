@@ -18,8 +18,12 @@ int	ft_format(const char format, va_list args)
 		return (ft_putchar(va_arg(args, int)));
 	else if (format == 's')
 		return (ft_putstr(va_arg(args, char *)));
+<<<<<<< HEAD
 	else if (format == 'p')
 		return (ft_putptr(va_arg(args, uintptr_t)));
+=======
+	//else if (format == 'p')
+>>>>>>> dea91c610ed6bc3225eae0338351c8ee9fb9b0be
 	else if (format == 'd' || format == 'i')
 		return (ft_putnbr(va_arg(args, int)));
 	else if (format == 'u')
@@ -59,6 +63,7 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
+<<<<<<< HEAD
 	int	address = 42;
 
 	int	ft_result = ft_printf("name is %s and %d,%u,%x,%X years %%old%c living at %p\n", "Laura", 23, 23, 23, 23, '!', &address);
@@ -66,5 +71,14 @@ int	main(void)
 	
 	ft_printf("%d\n", ft_result);
 	printf("%d\n", p_result);
+=======
+	/* int	p_result = printf("Hello my name is %s and i'm %d,%u years old%c\n", "Laura", 23, 23, '!');
+	int	ft_result = ft_printf("Hello my name is %s and i'm %d,%u years old%c\n", "Laura", 23, 23, '!'); */
+
+	int	p_result = printf("Hello my name is %s and i'm %d,%u,%x,%X years %%old%c\n", "Laura", 23, 23, 23, 23, '!');
+	int	ft_result = ft_printf("Hello my name is %s and i'm %d,%u,%x,%X years %%old%c\n", "Laura", 23, 23, 23, 23, '!');
+	printf("%d\n", p_result);
+	printf("%d\n", ft_result);
+>>>>>>> dea91c610ed6bc3225eae0338351c8ee9fb9b0be
 }
 
