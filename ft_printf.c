@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	ft_format(const char format, va_list args)
+static int	ft_format(const char format, va_list args)
 {
 	if (format == 'c')
 		return (ft_putchar(va_arg(args, int)));
@@ -23,13 +23,14 @@ int	ft_format(const char format, va_list args)
 	else if (format == 'd' || format == 'i')
 		return (ft_putnbr(va_arg(args, int)));
 	else if (format == 'u')
-		return (ft_putnbr(va_arg(args, int)));
+		return (ft_putunbr(va_arg(args, int)));
 	else if (format == 'x')
 		return (ft_putnbr_hexl(va_arg(args, int)));
 	else if (format == 'X')
 		return (ft_putnbr_hexu(va_arg(args, int)));
 	else if (format == '%')
 		return (ft_putchar('%'));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)
@@ -58,14 +59,11 @@ int	ft_printf(const char *format, ...)
 /* 
 int	main(void)
 {
-	int	address = 42;
+	void *ptr = NULL;
 
 	int	ft_result = ft_printf("name is %s and %d,%u,%x,%X years %%old%c living\
-	at %p\n", "Laura", 23, 23, 23, 23, '!', &address);
+	at %p\n", "Laura", 23, 23, 23, 23, '!', ptr);
 	int	p_result = printf("name is %s and %d,%u,%x,%X years %%old%c living at\
-	%p\n", "Laura", 23, 23, 23, 23, '!', &address);
-	
-	ft_printf("%d\n", ft_result);
-	printf("%d\n", p_result);
+	%p\n", "Laura", 23, 23, 23, 23, '!', ptr);
 }
  */

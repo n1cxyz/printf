@@ -14,10 +14,12 @@ NAME = libftprintf.a
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 SRCS = $(wildcard *.c)
-OBJS = ${SRCS:.c.o}
+OBJS = ${SRCS:.c=.o}
 LIB = ar rcs
 RM = rm -f
 
+.c.o:
+	${CC} ${FLAGS} -c $< -o ${<:.c=.o}
 ${NAME}: ${OBJS}
 	${LIB} ${NAME} ${OBJS}
 all: ${NAME}
